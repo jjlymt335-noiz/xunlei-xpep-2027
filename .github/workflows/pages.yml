@@ -1,4 +1,4 @@
-name: Deploy approved Demo 1
+name: Deploy approved demos
 
 on:
   push:
@@ -23,11 +23,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Prepare approved files only
+      - name: Prepare approved demos
         shell: bash
         run: |
           mkdir -p _site/demo-browser
           cp -R site/demo-browser/. _site/demo-browser/
+          mkdir -p _site/demo-ptrip
+          cp -R site/demo-ptrip/. _site/demo-ptrip/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
