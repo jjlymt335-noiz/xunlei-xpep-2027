@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="漂一下：可执行路线与逐站备选。">
+  <title>漂一下｜可执行路线</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen="setup">
+  <main class="stage">
+    <aside class="thesis" aria-label="产品说明">
+      <p class="brand-display">漂一下</p>
+      <p class="plain-promise">先给你一条能走的路线；错过哪一站，就换对应备选。</p>
+      <p class="thesis-copy">每站已算好时间、移动间隔和替代去处。你可以临时变，但 20:00 的演出不动。</p>
+    </aside>
+
+    <section class="phone" aria-label="漂一下路线原型">
+      <header class="phone-head"><h1>漂一下</h1><span class="status-dot">今日路线</span></header>
+
+      <section class="screen setup-screen" aria-labelledby="setup-heading">
+        <p class="kicker">当前条件</p>
+        <h2 id="setup-heading">用 10 秒排好今天</h2>
+        <p class="plain-promise mobile-promise">先给你一条能走的路线；错过哪一站，就换对应备选。</p>
+        <form id="trip-form">
+          <fieldset>
+            <legend>精力</legend>
+            <div class="choice-row">
+              <label><input type="radio" name="energy" value="low" data-value="low"><span>低电量</span></label>
+              <label><input type="radio" name="energy" value="medium" data-value="medium" checked><span>刚刚好</span></label>
+              <label><input type="radio" name="energy" value="high" data-value="high"><span>还能逛</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>天气</legend>
+            <div class="choice-row">
+              <label><input type="radio" name="weather" value="sun" data-value="sun" checked><span>有太阳</span></label>
+              <label><input type="radio" name="weather" value="rain" data-value="rain"><span>下雨</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>还剩多久</legend>
+            <div class="choice-row small">
+              <label><input type="radio" name="time" value="60"><span>1 小时</span></label>
+              <label><input type="radio" name="time" value="120" checked><span>2 小时</span></label>
+              <label><input type="radio" name="time" value="240"><span>半天</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>今天偏好</legend>
+            <div class="choice-row small">
+              <label><input type="radio" name="vibe" value="safe" checked><span>稳一点</span></label>
+              <label><input type="radio" name="vibe" value="surprise"><span>多一点新鲜</span></label>
+              <label><input type="radio" name="vibe" value="rest"><span>少走一点</span></label>
+            </div>
+          </fieldset>
+          <button class="primary" type="submit" data-action="recommend">生成可执行路线</button>
+        </form>
+      </section>
+
+      <section class="screen choices-screen" aria-labelledby="choices-heading">
+        <p class="kicker">路线已预排</p>
+        <h2 id="choices-heading">准备好出发</h2>
+        <p class="route-note">打开路线后，每一站都有对应备选。</p>
+        <button class="primary" type="button" data-action="open-route">查看今天的路线</button>
+      </section>
+
+      <section class="screen route-screen" aria-labelledby="route-heading">
+        <div class="route-topline"><div><p class="kicker">可执行路线</p><h2 id="route-heading">今天这样走</h2></div><button class="text-action" type="button" data-action="back-setup">重填条件</button></div>
+        <p class="route-note" data-testid="route-summary"></p>
+        <p class="hard-constraint" data-testid="hard-constraint">硬约束：20:00 演出不可移动</p>
+        <div class="timeline" data-timeline aria-live="polite"></div>
+        <button class="primary" type="button" data-action="finish-trip">保存这条路线</button>
+      </section>
+
+      <section class="screen share-screen" aria-labelledby="share-heading">
+        <p class="kicker">路线已保存</p>
+        <h2 id="share-heading">今天的调整记录</h2>
+        <article class="share-card" data-testid="share-card"></article>
+        <button class="primary" type="button" data-action="share-trip">复制路线</button>
+        <p class="copy-fallback" data-copy-fallback hidden tabindex="0"></p>
+        <button class="text-action" type="button" data-action="restart">重新排一条路线</button>
+      </section>
+    </section>
+  </main>
+  <noscript><p class="noscript">漂一下会生成含时间、移动间隔与每站备选的路线；20:00 演出固定不动。</p></noscript>
+  <script src="app.js"></script>
+</body>
+</html>
