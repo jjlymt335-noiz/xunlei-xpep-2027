@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>迅雷浏览器：功能瘦身 Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-active-view="current">
+    <main>
+      <header class="masthead">
+        <a class="brand" href="#top"><span class="brand-mark">↯</span>迅雷浏览器</a>
+        <span class="eyebrow">功能瘦身 / 交互原型</span>
+      </header>
+      <section class="hero" id="top" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="kicker">从“功能入口”回到“资源浏览”</p>
+          <h1 id="page-title">真正的瘦身，不是少几个按钮</h1>
+          <p class="lede">保留熟悉的迅雷浏览器壳，把首屏收束为搜索、浏览与标签页；阅读、播放和保存只在资源需要它们时出现。</p>
+          <div class="view-switch" role="group" aria-label="切换浏览器版本">
+            <button type="button" class="switch-button" data-action="show-current" aria-pressed="true">当前结构</button>
+            <button type="button" class="switch-button" data-action="show-lean" aria-pressed="false">瘦身方案</button>
+          </div>
+          <p class="source-note">界面为 2026-08-29 公开应用商店页面的功能与导航线索重构，并非像素级复刻。</p>
+        </div>
+        <div class="phone-stage" aria-label="迅雷浏览器当前结构与瘦身方案对比">
+          <div class="phone-shell">
+            <div class="phone-status"><span>9:41</span><span>▮▮▮ 5G ▰</span></div>
+            <section class="browser-view" data-testid="phone-home" data-view="current" aria-label="当前迅雷浏览器首页">
+              <div class="xunlei-shell" data-testid="xunlei-shell" data-shell-theme="light">
+                <div class="browser-brand"><span class="browser-bolt">↯</span><strong data-testid="xunlei-mark">迅雷</strong><small>浏览器</small></div>
+                <div class="browser-address" data-testid="browser-address">⌕ <span>搜索或输入网址</span><b>◉</b></div>
+                <p class="quick-title">常用网站</p>
+                <div class="quick-grid" aria-label="常用网站"><span><i>热</i>热点</span><span><i>影</i>影视</span><span><i>云</i>云盘</span><span><i>百</i>百科</span></div>
+                <p class="baseline-note" data-testid="current-baseline-note">事实基线：2026-08-29 App Store 2.18.0 及公开应用商店信息；七个同权入口为分析示意，并非像素级当前 UI。</p>
+                <p class="current-hint">菜单汇集 7 个同权功能入口</p>
+              </div>
+              <nav class="browser-bottom-nav" data-testid="browser-bottom-nav" aria-label="浏览器底部导航">
+                <button type="button"><b>‹</b><span>后退</span></button><button type="button"><b>›</b><span>前进</span></button><button type="button"><b>⌂</b><span>首页</span></button><button type="button"><b class="tab-count">3</b><span>标签页</span></button><button type="button" data-action="open-menu"><b>☰</b><span>菜单</span></button>
+              </nav>
+            </section>
+            <section class="browser-view" data-view="lean" hidden aria-label="瘦身后的迅雷浏览器首页">
+              <div class="xunlei-shell" data-testid="xunlei-shell" data-shell-theme="light">
+                <div class="browser-brand"><span class="browser-bolt">↯</span><strong data-testid="xunlei-mark">迅雷</strong><small>浏览器</small></div>
+                <div class="browser-address" data-testid="browser-address">⌕ <span>搜索或输入网址</span><b>◉</b></div>
+                <p class="quick-title">常用网站</p>
+                <div class="quick-grid" aria-label="常用网站"><span><i>热</i>热点</span><span><i>影</i>影视</span><span><i>云</i>云盘</span><span><i>百</i>百科</span></div>
+                <div class="recognition-card"><span>网页已识别为长文 / 媒体资源</span><div><button type="button" data-action="open-read">阅读模式</button><button type="button" data-action="open-play">纯净播放</button></div></div>
+                <button class="toolbox-link" type="button" data-action="open-toolbox">编辑工具箱：离线网页、密码箱、电脑版网页</button>
+              </div>
+              <nav class="browser-bottom-nav" data-testid="browser-bottom-nav" aria-label="浏览器底部导航">
+                <button type="button"><b>‹</b><span>后退</span></button><button type="button"><b>›</b><span>前进</span></button><button type="button"><b>⌂</b><span>首页</span></button><button type="button"><b class="tab-count">3</b><span>标签页</span></button><button type="button" data-action="open-menu"><b>☰</b><span>菜单</span></button>
+              </nav>
+            </section>
+            <aside class="browser-sheet" data-testid="context-panel" aria-live="polite" hidden></aside>
+          </div>
+        </div>
+      </section>
+      <section class="decision-section" data-testid="decision-matrix" aria-labelledby="matrix-title">
+        <div><p class="kicker">动作，而非删减表演</p><h2 id="matrix-title">留、并、藏、删</h2></div>
+        <div class="decision-grid">
+          <article><strong>留</strong><span>搜索、广告拦截、阅读、播放</span></article>
+          <article><strong>并</strong><span>书签 + 历史 + 下载 → 收藏与文件</span></article>
+          <article><strong>藏</strong><span>离线网页、密码箱、电脑版网页 → 可编辑工具箱</span></article>
+          <article><strong>删</strong><span>先灰度停掉低覆盖、低差异且高维护的重复入口</span></article>
+        </div>
+        <p class="footnote">* “删”的清单须在发布前结合内部使用、性能、收入与投诉数据验证，并按灰度顺序执行。</p>
+      </section>
+      <section class="impact-section" data-testid="expected-impact" aria-labelledby="impact-title">
+        <p class="kicker">预期影响 / 待验证</p><h2 id="impact-title">让用户先开始浏览，再在需要时获得能力。</h2>
+        <p>以首屏任务完成、阅读/播放触发、保存成功率与投诉为共同护栏，而不是只追求按钮变少。</p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
